@@ -20,16 +20,12 @@ router.use("/",(req,res)=>{
         .catch(err => {
             todos = [];
         })
-        console.log("todossss",todos);
-        const completedTask = todos.filter((todo)=>todo.completed == false)
-        console.log("completedTask",completedTask);
-        
         todos.map((todo,index)=> {
            
             tableContent += 
 
             `
-            <li class="list-group-item d-flex justify-content-between align-items-center border-start-0 border-top-0 border-end-0 border-bottom rounded-0 mb-2">
+            <li class="todoCart list-group-item d-flex justify-content-between align-items-center border-start-0 border-top-0 border-end-0 border-bottom rounded-0 mb-2">
                          <div class="d-flex align-items-center">
 
                          ${  todo.completed  
@@ -47,6 +43,7 @@ router.use("/",(req,res)=>{
             `
         })
         res.send(data.replace("{{todoContent}}",tableContent))
+      
     })
 })
 
