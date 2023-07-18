@@ -119,7 +119,6 @@ router.patch("/:id", (req, res) => {
     fs.readFile(path.join(__dirname, "todo.json"), 'utf-8', (err, data) => {
 
         const dataObj = JSON.parse(data)
-        console.log("dataObj", dataObj);
         let todoPatch;
         if (req.params.id) {
             let flag = false
@@ -138,7 +137,7 @@ router.patch("/:id", (req, res) => {
                 return todo
             })
         
-            fs.writeFile(path.join(__dirname, "meo.json"), JSON.stringify(newDataObj), (err) => {
+            fs.writeFile(path.join(__dirname, "todo.json"), JSON.stringify(newDataObj), (err) => {
                 if (err) {
                     return res.status(500).json(
                         {

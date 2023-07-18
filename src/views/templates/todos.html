@@ -60,9 +60,9 @@
             body: JSON.stringify({
                 completed: event.target.checked
             }),
-            headers: new Headers({
+            headers: {
                 'Content-Type': 'application/json; charset=UTF-8'
-            })
+            }
             })
           .then(response => {
               response.json()

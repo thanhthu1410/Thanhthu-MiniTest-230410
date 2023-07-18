@@ -6,7 +6,7 @@ import path from 'path';
 
 
 
-router.use("/todos",(req,res)=>{
+router.use("/",(req,res)=>{
     fs.readFile(path.join(__dirname,"templates/todos.html"),'utf-8', async(err,data)=>{
         if(err){
             return res.send("load ui view")
@@ -21,6 +21,8 @@ router.use("/todos",(req,res)=>{
             todos = [];
         })
         console.log("todossss",todos);
+        const completedTask = todos.filter((todo)=>todo.completed == false)
+        console.log("completedTask",completedTask);
         
         todos.map((todo,index)=> {
            
