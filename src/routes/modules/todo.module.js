@@ -15,6 +15,17 @@ router.get("/", (req, res) => {
                 }
             )
         }
+        if (req.query.id) {
+            let todo = JSON.parse(data).find(todo => todo.id == req.query.id);
+            if (todo) {
+                return res.status(200).json(
+                    {
+                        data: todo
+                    }
+                )
+            }
+        }
+
         return res.status(200).json(
             {
                 message: "success",
